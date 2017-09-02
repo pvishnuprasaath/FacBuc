@@ -6,9 +6,10 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'about.html'
 })
 export class AboutPage {
+  test:string="vishnu";
 
   constructor(public navCtrl: NavController) {
-
+   
   }
 
 }

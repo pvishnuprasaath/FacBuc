@@ -1,17 +1,85 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+  <ion-navbar  no-border-bottom color="primary">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-7 text-right class="pad"><ion-title>FacBuc</ion-title></ion-col>
+        <ion-col col-5 text-left ><ion-icon style="font-size: 40px;color:azure;" name="basket"></ion-icon></ion-col>
+      </ion-row>
+    </ion-grid>
+    <!--<ion-title text-center>FacBuc</ion-title>-->
+    
+</ion-navbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="school" color="primary">
+      <ion-segment-button value="site" >
+        <!-- <ion-icon name="arrow-dropdown-circle"></ion-icon> -->
+        <h5 p ion-text>SITE</h5>
+      </ion-segment-button>
+      <ion-segment-button value="select">
+        <!-- <ion-icon name="arrow-dropdown-circle"></ion-icon> -->
+        <h5 p ion-text>SELECT</h5>
+      </ion-segment-button>
+      <ion-segment-button value="sense">
+        <!--<ion-icon name="arrow-dropdown-circle"></ion-icon>--> 
+        <h5 p ion-text>SENSE</h5>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content >
+  <div [ngSwitch]="school">
+    <ion-list *ngSwitchCase="'site'">
+        <ion-card  *ngFor="let f of faculty | async">
+          <div *ngIf="f.school=='SITE'">
+            <button ion-item (click)="itemTapped($event, f)" >
+              <ion-icon item-start name="contact"></ion-icon>
+              <h2>{{f.name}}</h2>
+              <ion-icon *ngIf="f.status==true" item-end name="checkmark-circle" style="color:chartreuse;"></ion-icon>
+              <ion-icon *ngIf="!f.status==true" item-end name="cafe" style="color:goldenrod;"></ion-icon> 
+            </button>
+        </div>
+      </ion-card>
+      
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'select'">
+      <ion-card *ngFor="let f of faculty | async">
+        <div *ngIf="f.school=='SELECT'">
+        <button ion-item (click)="itemTapped($event, f)">
+          <ion-icon item-start name="contact"></ion-icon>
+          <h2>{{f.name}}</h2>
+          <ion-icon *ngIf="f.status==true" item-end name="checkmark-circle" style="color:chartreuse;"></ion-icon>
+          <ion-icon *ngIf="!f.status==true" item-end name="cafe" style="color:goldenrod;"></ion-icon>
+        </button>
+        </div>
+    </ion-card>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'sense'">
+      <ion-card *ngFor="let f of faculty | async">
+        <div *ngIf="f.school=='SENSE'">
+        <button ion-item (click)="itemTapped($event, f)">
+          <ion-icon item-start name="contact"></ion-icon>
+          <h2>{{f.name}}</h2>
+          <ion-icon *ngIf="f.status==true" item-end name="checkmark-circle" style="color:chartreuse;"></ion-icon>
+          <ion-icon *ngIf="!f.status==true" item-end name="cafe" style="color:goldenrod;"></ion-icon>
+        </button>
+        </div>
+    </ion-card>
+    </ion-list>
+
+  </div>
+
+  <h2 class="pad1" text-center padding *ngIf="!school">Select the schools to view the faculties</h2>
+ 
+  <!--<ion-list>
+    <ion-item *ngFor="let f of facy | async">
+      <p>{{f.name}}</p>
+      <p>{{f.school}}</p>
+      
+    </ion-item>
+  </ion-list>-->
+
 </ion-content>

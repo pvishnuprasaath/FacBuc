@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!faculty">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Faculty Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3 text-center *ngIf="faculty">
+    {{faculty.name}}
+    <ion-icon name="bulb"></ion-icon>
+  </h3>
+  <h4 text-center *ngIf="faculty">
+    SCHOOL:<b>{{faculty.school}}</b><br/>
+    LAST SEEN:<b>{{faculty.status}}</b>
+  </h4>
+</ion-content>
