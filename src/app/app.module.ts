@@ -17,12 +17,12 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
   // Initialize Firebase
   const firebaseConfig = {
-    apiKey: "AIzaSyA4I2uLppyV0b4sV1QrcR2Yw9J9KPKabjI",
-    authDomain: "facbuc-ffe25.firebaseapp.com",
-    databaseURL: "https://facbuc-ffe25.firebaseio.com",
-    projectId: "facbuc-ffe25",
-    storageBucket: "facbuc-ffe25.appspot.com",
-    messagingSenderId: "782229059588"
+    apiKey: "**REPLACE API KEY**",
+    authDomain: "REPLACE",
+    databaseURL: "REPLACE",
+    projectId: "REPLACE",
+    storageBucket: "REPLACE",
+    messagingSenderId: "REPLACE"
   };
 
 
